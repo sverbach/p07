@@ -1,12 +1,12 @@
 version: '3'
 services:
   joke:
-    container_name: joke-container
+    container_name: "joke-container"
     image: "docker.io/scadteam2/p07-joke"
     ports:
       - "8000:8000"
   app:
-  container_name: app-container
+    container_name: "app-container"
     image: "docker.io/scadteam2/p07-app"
     ports:
       - "8080:8080"
