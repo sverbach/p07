@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    template.openshift.io/expose-uri: 'mysql://{.spec.clusterIP}:{.spec.ports[?(.name=="mysql")].port}'
+  creationTimestamp: '2020-11-24T12:49:25Z'
+  labels:
+    app: mysql-persistent
+    template: mysql-persistent-template
+  name: mysql
+  namespace: appuio-demo4253
+  resourceVersion: '1000289791'
+  selfLink: /api/v1/namespaces/appuio-demo4253/services/mysql
+  uid: 7bb76c79-2e53-11eb-b1a4-fa163e3ec73a
+spec:
+  clusterIP: 172.30.113.136
+  ports:
+    - name: mysql
+      port: 3306
+      protocol: TCP
+      targetPort: 3306
+  selector:
+    name: mysql
+  sessionAffinity: None
+  type: ClusterIP
+status:
+  loadBalancer: {}
